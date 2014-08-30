@@ -1,0 +1,46 @@
+#!/bin/sh
+# Copyright 2010-2011 Vaaraahi Embedded
+# Script by Vicky
+# Make sure the pcscd progam exists
+
+[ -f /usr/sbin/pcscd ] || exit 0
+
+start() {
+	rm /var/run/pcscd -rf
+	if ! [ -d /var/run/pcscd ]; then
+		mkdir -p /var/run/pcscd
+	fi
+
+	chmod 0775 /var/run/pcscd
+	echo "Starting pcscd"
+	start-stop-daemon --start \
+        --exec /usr/sbin/pcscd \
+        --pidfile /var/run/pcscd/pcscd.pid 
+}
+stop() {
+	echo "Stopping pcscd"
+	start-stop-daemon --stop \
+        --exec /usr/sbin/pcscd \
+        --pidfile /var/run/pcscd/pcscd.pid
+}
+restart() {
+        stop
+        start
+}
+
+case "$1" in
+  start)
+       start
+       ;;
+  stop)
+       stop
+       ;;
+  restart|reload)
+       restart
+       ;;
+  *)
+       echo $"Usage: $0 {start|stop|restart}"
+       exit 1
+esac
+
+exit $?                                                                        

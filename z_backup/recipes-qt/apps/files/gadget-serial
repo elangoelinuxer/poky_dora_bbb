@@ -1,0 +1,1 @@
+getty 115200 /dev/ttyGS0

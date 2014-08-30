@@ -1,0 +1,26 @@
+diff --git a/readers/supported_readers.txt b/readers/supported_readers.txt
+index a4ea3b4..8afb15b 100644
+--- a/readers/supported_readers.txt
++++ b/readers/supported_readers.txt
+@@ -285,6 +285,9 @@
+ # KEBTechnology
+ 0x04CC:0x5072:KEBTechnology KONA USB SmartCard
+ 
++#ST-Ericsson NFC device
++0x04CC:0x2533:ST-Ericsson NFC device (PN533)
++
+ # Kingtrust
+ 0x0483:0x0007:Kingtrust Multi-Reader
+ 
+diff --git a/src/ccid_usb.c b/src/ccid_usb.c
+index 6dd41ea..0564055 100644
+--- a/src/ccid_usb.c
++++ b/src/ccid_usb.c
+@@ -123,6 +123,7 @@ static struct _bogus_firmware Bogus_firmwares[] = {
+ 	{ 0x0DC3, 0x1004, 0x0502 },	/* ASE IIIe USBv2 */
+ 	{ 0x0DC3, 0x1102, 0x0607 },	/* ASE IIIe KB USB */
+ 	{ 0x058F, 0x9520, 0x0102 },	/* Alcor AU9520-G */
++	{ 0x04CC, 0x2533, 0x0102 },     /* ST-Ericsson NFC device (PN533) */
+ 	{ 0x072F, 0x2200, 0x0206 }, /* ACS ACR122U-WB-R */
+ 	{ 0x08C3, 0x0402, 0x5000 },	/* Precise Biometrics Precise 200 MC */
+ 	{ 0x08C3, 0x0401, 0x5000 },	/* Precise Biometrics Precise 250 MC */

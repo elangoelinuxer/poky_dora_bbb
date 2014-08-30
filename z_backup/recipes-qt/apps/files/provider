@@ -1,0 +1,7 @@
+noauth
+connect "/usr/sbin/chat -v -t 5 -f /etc/ppp/chatscripts/airtel"
+debug
+ttyS1
+defaultroute
+noipdefault
+usepeerdns

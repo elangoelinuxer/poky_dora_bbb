@@ -1,0 +1,27 @@
+diff --git a/src/ccid_usb.c b/src/ccid_usb.c
+index 6dd41ea..4992923 100644
+--- a/src/ccid_usb.c
++++ b/src/ccid_usb.c
+@@ -398,7 +398,8 @@ status_t OpenUSBByName(unsigned int reader_index, /*@null@*/ char *device)
+ 						usbDevice[reader_index] = usbDevice[previous_reader_index];
+ 						/* the other slots do not have the same data rates */
+ 						if ((GEMCOREPOSPRO == usbDevice[reader_index].ccid.readerID)
+-							|| (GEMCORESIMPRO == usbDevice[reader_index].ccid.readerID))
++							|| ((GEMCORESIMPRO == usbDevice[reader_index].ccid.readerID) && (usbDevice[reader_index].ccid.IFD_bcdDevice < 0x0200)))
++
+ 						{
+ 							usbDevice[reader_index].ccid.arrayOfSupportedDataRates = SerialCustomDataRates;
+ 							usbDevice[reader_index].ccid.dwMaxDataRate = 125000;
+diff --git a/src/ifdhandler.c b/src/ifdhandler.c
+index a2941df..49fdbdd 100644
+--- a/src/ifdhandler.c
++++ b/src/ifdhandler.c
+@@ -1704,7 +1704,7 @@ EXTERNAL RESPONSECODE IFDHICCPresence(DWORD Lun)
+ 
+ 	ccid_descriptor = get_ccid_descriptor(reader_index);
+ 
+-	if (GEMCORESIMPRO == ccid_descriptor->readerID)
++	if ((GEMCORESIMPRO == ccid_descriptor->readerID) && (ccid_descriptor->IFD_bcdDevice < 0x0200))
+ 	{
+ 		return_value = ccid_descriptor->dwSlotStatus;
+ 		goto end;

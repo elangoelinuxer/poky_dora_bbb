@@ -1,0 +1,39 @@
+diff --git a/src/PCSC/pcsclite.h b/src/PCSC/pcsclite.h
+index bc018a3..337a829 100644
+--- a/src/PCSC/pcsclite.h
++++ b/src/PCSC/pcsclite.h
+@@ -21,7 +21,7 @@
+ #ifndef __pcsclite_h__
+ #define __pcsclite_h__
+ 
+-#include <wintypes.h>
++#include <PCSC/wintypes.h>
+ 
+ #ifdef __cplusplus
+ extern "C"
+diff --git a/src/PCSC/pcsclite.h.in b/src/PCSC/pcsclite.h.in
+index d554938..d00bcbe 100644
+--- a/src/PCSC/pcsclite.h.in
++++ b/src/PCSC/pcsclite.h.in
+@@ -21,7 +21,7 @@
+ #ifndef __pcsclite_h__
+ #define __pcsclite_h__
+ 
+-#include <wintypes.h>
++#include <PCSC/wintypes.h>
+ 
+ #ifdef __cplusplus
+ extern "C"
+diff --git a/src/PCSC/winscard.h b/src/PCSC/winscard.h
+index 5b2f7b7..ac15d42 100644
+--- a/src/PCSC/winscard.h
++++ b/src/PCSC/winscard.h
+@@ -17,7 +17,7 @@
+ #ifndef __winscard_h__
+ #define __winscard_h__
+ 
+-#include <pcsclite.h>
++#include <PCSC/pcsclite.h>
+ 
+ #ifdef __cplusplus
+ extern "C"

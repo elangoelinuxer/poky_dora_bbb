@@ -1,0 +1,12 @@
+diff --git a/fbgrab.c b/fbgrab.c
+index f159966..146bfc0 100644
+--- a/fbgrab.c
++++ b/fbgrab.c
+@@ -32,6 +32,7 @@
+ #include <getopt.h>
+ #include <sys/vt.h>   /* to handle vt changing */
+ #include <png.h>      /* PNG lib */
++#include <zlib.h>      /* Zlib */
+ #include <linux/fb.h> /* to handle framebuffer ioctls */
+ 
+ #define	VERSION	"1.0 beta 1"

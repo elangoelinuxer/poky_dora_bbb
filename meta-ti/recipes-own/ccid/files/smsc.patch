@@ -1,0 +1,12 @@
+diff --git a/readers/supported_readers.txt b/readers/supported_readers.txt
+index 5c58c50..b4967d1 100644
+--- a/readers/supported_readers.txt
++++ b/readers/supported_readers.txt
+@@ -569,3 +569,7 @@
+ #0x0F14:0x003D:Ingenico WITEO USB Smart Card Reader (Ingenico_WITEO_badge.txt)
+ #0x0F14:0x003D:Ingenico WITEO USB Smart Card Reader (Ingenico_WITEO_base.txt)
+ 
++
++# SMSC
++
++0x0424:0x1202:USX101x Dual Slot SmartCard Reader

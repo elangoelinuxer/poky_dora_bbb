@@ -1,0 +1,1 @@
+ERROR: QA Issue: /home/elango/hd_elinux/poky-dora-10.0.0/meta-ti/recipes-own/bluez-tools/bluez-tools_git.bb: Variable RDEPENDS is set as not being package specific, please fix this.

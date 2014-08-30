@@ -1,0 +1,20 @@
+DESCRIPTION = "ccid"
+HOMEPAGE = "pcsclite.alioth.debian.org"
+LICENSE = "GPLv2"
+LIC_FILES_CHKSUM = "file://COPYING;md5=2d5025d4aa3495befef8f17206a5b0a1"
+DEPENDS = "virtual/libusb0 pcsc-lite"
+
+SRC_URI = "https://alioth.debian.org/frs/download.php/file/3937/ccid-1.4.12.tar.bz2"
+SRC_URI += "file://smsc.patch"
+
+SRC_URI[md5sum] = "54a314b60b60a9549febc75b6dc516d5"
+SRC_URI[sha256sum] = "05438ed1e1bec467fa7b6a9fc316a03e82843e9335fe942e315af8c812b39bf0"
+
+S = "${WORKDIR}/ccid-${PV}"
+
+inherit autotools 
+
+FILES_${PN} = "${libdir}/pcsc"
+FILES_${PN}-dbg += "${libdir}/pcsc/drivers/*/*/*/.debug"
+
+
